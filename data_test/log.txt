@@ -1,0 +1,2 @@
+[2024-06-13 17:03:07.233488] -- [LotAuction.insert_many(data_info_lot).execute()] -- [Не смог записать аукцион с названием Аукцион VIP №901; url: https://www.wolmar.ru/auction/1983?all=1] -- [UNIQUE constraint failed: lot_action.url]
+[2024-06-13 17:03:30.937026] -- [LotAuction.insert_many(data_info_lot).execute()] -- [Не смог записать аукцион с названием Аукцион VIP №900; url: https://www.wolmar.ru/auction/1980?all=1] -- [UNIQUE constraint failed: lot_action.url]
