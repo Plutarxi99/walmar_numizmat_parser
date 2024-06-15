@@ -1,16 +1,17 @@
 from datetime import datetime
+from time import sleep
 
 from peewee import *
 
 from config import settings
 
 from src.get_data import get_data_from_page_pass_test, get_data_from_page
-from src.parser_data import get_all_number_auction_vip, get_soup_parser, parser_info_auction, parser_table_info
+from src.parser_data import get_soup_parser, parser_info_auction, parser_table_info
 
 if __name__ == "__main__":
     html_str_static = get_data_from_page_pass_test('data_test/test_history_auction_all_page.html')
     soup_static = get_soup_parser(data=html_str_static)
-    # list_auction_number_vip_static = get_all_number_auction_vip()
+    # list_auction_number_vip_static = get_all_number_auction()
     list_auction_number_vip_static = ['1983', '1980']
     info_auction_generally_static = parser_info_auction(soup_static)
     # data_info_lot = parser_table_info(soup)
@@ -34,12 +35,11 @@ if __name__ == "__main__":
                     database = db  # соединение с базой, из шаблона выше
 
 
-            # (number_in_site, title_lot, year_coin, mint, metal_gr, safety, buyer, bids, amount, status, full_url)
             # Определяем модель исполнителя
             class LotAuction(BaseModel):
                 lot_id = AutoField(column_name='lot_id')
                 # number_in_site = SmallIntegerField(column_name='Int_on_site')
-                title_lot = FixedCharField(max_length=100, column_name='title')
+                title_lot = FixedCharField(max_length=250, column_name='title')
                 year_coin = SmallIntegerField(column_name='year')
                 mint = FixedCharField(max_length=30, null=True, column_name='mint')
                 metal_gr = FixedCharField(max_length=30, null=True, column_name='metal_gr')
@@ -52,23 +52,27 @@ if __name__ == "__main__":
                 full_url = FixedCharField(max_length=150, null=True, column_name='url', unique=True)
 
                 class Meta:
-                    table_name = 'lot_action'
+                    table_name = settings.NAME_TABLE
+
 
             table_is_create_lot = db.table_exists(LotAuction)
             if table_is_create_lot is False:
                 db.create_tables([LotAuction])
-            # class Auction(BaseModel):
-            #     auction_id = AutoField(column_name='auction_id')
-            #     title_auction = FixedCharField(max_length=100, column_name='title')
-            #     date_closed = FixedCharField(max_length=40, column_name='date_closed')
-            #     url = FixedCharField(max_length=150, column_name='date_closed')
-            #
-            #     class Meta:
-            #         table_name = 'action'
 
-            # table_is_create_auction = db.table_exists(Auction)
-            # if table_is_create_auction is False:
-            #     db.create_tables([Auction])
+
+            class Auction(BaseModel):
+                auction_id = AutoField(column_name='auction_id')
+                title_auction = FixedCharField(max_length=100, column_name='title')
+                date_closed = FixedCharField(max_length=40, column_name='date_closed')
+                url = FixedCharField(max_length=150, column_name='url')
+
+                class Meta:
+                    table_name = 'action'
+
+
+            table_is_create_auction = db.table_exists(Auction)
+            if table_is_create_auction is False:
+                db.create_tables([Auction])
 
             # add_in_db_many_value(LotAuction, data_info_lot)
             try:
