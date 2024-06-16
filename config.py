@@ -21,5 +21,20 @@ class Settings:
     SERVER_EMAIL = os.getenv('SERVER_EMAIL')
     SERVER_PASSWORD = os.getenv('SERVER_PASSWORD')
 
+    POSTGRES_SERVER: str = os.getenv("POSTGRES_SERVER")
+    POSTGRES_USER: str = os.getenv("POSTGRES_USER")
+    POSTGRES_PASSWORD: str = os.getenv("POSTGRES_PASSWORD")
+    POSTGRES_DB: str = os.getenv("POSTGRES_DB")
+    POSTGRES_DRIVER: str = os.getenv("POSTGRES_DRIVER") # postgresql+asyncpg
+    POSTGRES_TABLE: str = os.getenv("POSTGRES_TABLE")
+
+    SQLALCHEMY_DATABASE_URL_POSTGRES: str = f"{POSTGRES_DRIVER}://{POSTGRES_USER}:{POSTGRES_PASSWORD}@{POSTGRES_SERVER}/{POSTGRES_DB}"
+
+    PROXIES_IP_DEF = os.getenv("PROXIES_IP_DEF")
+    PROXIES_PORT_DEF = os.getenv("PROXIES_PORT_DEF")
+    PROXIES_IP = os.getenv("PROXIES_IP")
+    PROXIES_PORT = os.getenv("PROXIES_PORT")
+    PROXIES_EMAIL = os.getenv("PROXIES_EMAIL")
+    PROXIES_PASS = os.getenv("PROXIES_PASS")
 
 settings = Settings()

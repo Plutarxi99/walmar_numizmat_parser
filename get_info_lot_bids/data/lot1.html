@@ -1,15 +1,13 @@
+<table class="colored" width="100%">
+    <tr>
+        <th>Сумма</th>
+        <th></th>
+        <th>Логин</th>
+        <th nowrap style="text-align: right;">Дата / Время</th>
+        <th width="100%"></th>
+    </tr>
 
-
-	<table class="colored" width="100%">
-		<tr>
-			<th>Сумма</th>
-			<th></th>
-			<th>Логин</th>
-			<th nowrap style="text-align: right;">Дата / Время</th>
-			<th width="100%"></th>
-		</tr>
-
-								<tr class="">
+<tr class="">
 				<td nowrap>143 816</td>
 				<td style="padding-right: 30px;">*</td>
 				<td nowrap >Медвежуть</td>
@@ -114,30 +112,30 @@
 				<td nowrap style="padding-left: 30px;">30.05.2024 22:33:52</td>
 				<td width="100%"></td>
 			</tr>
-			</table>
+</table>
 
-		<script>
-		last_bid_id = 165967;
+<script>
+    last_bid_id = 165967;
 
-		$('#sum').html('143 816');
-		$('#min_bid').html('147 412');
+    $('#sum').html('143 816');
+    $('#min_bid').html('147 412');
 
-		$('#bid input[name=value]').each(function() {
-			if ($(this).is(':focus')) {
-				return;
-			}
-			var oldVal = parseInt($(this).data('value'), 10);
-			var val = parseInt($(this).val(), 10);
-			if (isNaN(val)) {
-				val = 0;
-			}
-			if (oldVal !== val) {
-				return;
-			}
-			var val2 = parseInt('147412', 10);
-			if (val2 > val) {
-				$(this).val(val2);
-				$(this).data('value', val2);
-			}
-		});
-	</script>
+    $('#bid input[name=value]').each(function () {
+        if ($(this).is(':focus')) {
+            return;
+        }
+        var oldVal = parseInt($(this).data('value'), 10);
+        var val = parseInt($(this).val(), 10);
+        if (isNaN(val)) {
+            val = 0;
+        }
+        if (oldVal !== val) {
+            return;
+        }
+        var val2 = parseInt('147412', 10);
+        if (val2 > val) {
+            $(this).val(val2);
+            $(this).data('value', val2);
+        }
+    });
+</script>
