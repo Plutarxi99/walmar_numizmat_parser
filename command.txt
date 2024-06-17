@@ -1,0 +1,32 @@
+создаем новую сессию
+tmux new-session -s parser
+
+подключиться к окну
+tmux attach -t parser
+
+выйти из сессии
+ctrl + b d
+
+посмотреть список
+tmux ls
+
+cd PycharmProjects/work/walmar_numizmat_parser/
+source env/bin/activate
+
+-- CREATE TABLE bids
+-- (
+--     id SERIAL PRIMARY KEY,
+--     id_hidden_lot integer,
+--     amount_bid integer,
+--     nickname varchar(150),
+--     datetime_pay varchar(60),
+--     status varchar(20),
+--     uniq_str varchar(40) UNIQUE
+-- );
+INSERT INTO bids(id_hidden_lot, amount_bid, nickname, datetime_pay) VALUES(1, 1, 1, 2024-1-1);
+
+
+ALTER TABLE bids ADD UNIQUE (uniq_str);
+ALTER TABLE bids ADD COLUMN uniq_str varchar(40);
+
+SELECT pg_size_pretty( pg_total_relation_size( 'html_str' ) );

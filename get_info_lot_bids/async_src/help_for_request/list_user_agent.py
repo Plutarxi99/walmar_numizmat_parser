@@ -1,7 +1,7 @@
 import random
 
 
-def get_headers():
+async def get_headers():
     list_headers = [
         {
             "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 YaBrowser/23.5.1.750 Yowser/2.5 Safari/537.36"},
@@ -92,15 +92,15 @@ def get_headers():
     headers["Accept"] = list_accept[random.randint(0, len(list_accept) - 1)]
     headers["sec-ch-ua"] = '"Chromium";v="112", "YaBrowser";v="23", "Not:A-Brand";v="99"'
     headers["X-Requested-With"] = "XMLHttpRequest"
-    headers["Sec-Fetch-Dest"] = "empty"
-    headers["Sec-Fetch-User"] = "?1"
-    headers["Sec-Fetch-Site"] = "none"
-    headers["Sec-Fetch-Mode"] = "navigate"
-    headers["Sec-Fetch-Dest"] = "document"
-    headers["Host"] = "www.wolmar.ru"
-    headers["Connection"] = "keep-alive"
-    headers["Cache-Control"] = "max-age=0"
-    headers["Accept-Language"] = "ru,en;q=0.9,uk;q=0.8"
-    headers["Accept-Encoding"] = "gzip, deflate, br"
-    headers["sec-ch-ua-mobile"] = "?0"
+    # headers["Sec-Fetch-Dest"] = "empty"
+    # headers["Sec-Fetch-User"] = "?1"
+    # headers["Sec-Fetch-Site"] = "none"
+    # headers["Sec-Fetch-Mode"] = "navigate"
+    # headers["Sec-Fetch-Dest"] = "document"
+    # headers["Host"] = "www.wolmar.ru"
+    # headers["Connection"] = "keep-alive"
+    # headers["Cache-Control"] = "max-age=0"
+    # headers["Accept-Language"] = "ru,en;q=0.9,uk;q=0.8"
+    # headers["Accept-Encoding"] = "gzip, deflate, br"
+    # headers["sec-ch-ua-mobile"] = "?0"
     return headers

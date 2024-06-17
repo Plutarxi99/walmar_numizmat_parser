@@ -9,13 +9,16 @@ from bs4 import BeautifulSoup
 
 from database.db import SessionLocal
 from database.models import LotAuction
+from get_info_lot_bids.async_src.help_for_request.dict_data_auction_lot import dict_auction_lot
+from get_info_lot_bids.async_src.help_for_request.list_id_auction import list_id_hidden_auction
+from get_info_lot_bids.async_src.help_for_request.list_proxies import get_proxies
 from src.note_finally_parser import push_note_mail
 
 logging.basicConfig(level=logging.WARNING, filename="log_async.log", filemode="a")
 
 
 async def get_clear_data_async(data):
-# def get_clear_data_async(data):
+    # def get_clear_data_async(data):
     """
     Получение отфильтрованных данных
     :param data: полученная страница из запроса
@@ -71,7 +74,8 @@ async def get_clear_data_async(data):
         date_wrong = datetime.datetime.now()
         logging.error(f"{date_wrong}"
                       f"{traceback.format_exc()}"
-                      f"{e}")
+                      f"{e}"
+                      f"===============================================")
         push_note_mail(email_text=f"Упала ошибка. Проблема в получении данных: {e}",
                        subject_email="Проблема с таблицей платежей лотов")
 
@@ -89,7 +93,6 @@ async def get_lot_id_async(id_auction_hidden):
     :param id_auction_hidden: 1987
     :return: [6611341, 6611342, 6611343, 6611344]
     """
-    # print("Предположительное место падения")
     with SessionLocal() as session:
         r = [x.id_lot_hidden for x in session.query(LotAuction.id_auction_hidden,
                                                     LotAuction.id_lot_hidden, ).filter(
@@ -97,10 +100,9 @@ async def get_lot_id_async(id_auction_hidden):
         list_id_hidden_lot = r
 
     return list_id_hidden_lot
-    # return [1217, 1218, 1223, 1222]
 
 
-def get_auction_id_not_async():
+def get_auction_id_not_async() -> list:
     """
     Получение списка всех id аукциона
     :return: [31, 32, 33, 34, 35]
@@ -110,3 +112,77 @@ def get_auction_id_not_async():
         r = [x.id_auction_hidden for x in session.query(LotAuction.id_auction_hidden).distinct()]
         list_id_hidden_auction = r
     return list_id_hidden_auction
+
+
+def create_dict_record_in_auction(list_id_auctions):
+    """
+
+    :param list_id_auctions:
+    :return: {1: 6000, 2: 6000, 3: 6000, }
+    """
+    dict_record_in_auction = {}
+    for id_auction in list_id_auctions:
+        count_lots = len(get_lot_id_async(id_auction))
+        dict_record_in_auction[id_auction] = count_lots
+    return dict_record_in_auction
+
+
+def get_slice_auction_for_request(all_id_auction, count_rec_in_list):
+    list_need_id_auction = all_id_auction[:count_rec_in_list]
+    dict_for_create_task_async = create_dict_record_in_auction(list_need_id_auction)
+    return dict_for_create_task_async
+
+
+async def get_diff_for_equally_async(id_auction, count_diff) -> list:
+    """
+
+    :param id_auction: индефикатора в url аукциона
+    :param count_diff: количество делений задач на равные части для делегирования асинхронности
+    :return:
+    """
+    print("\nПолучение срезов для списков\n")
+    list_slice_lots = []
+    records = dict_auction_lot[id_auction]
+    if records < count_diff:
+        count_diff = records
+    simple_diff = records / count_diff
+    if (int(simple_diff) * count_diff) > records:
+        simple_diff = int(simple_diff - 1)
+    left_border = None
+    right_border = simple_diff
+    slice_both = (left_border, int(right_border))
+    list_slice_lots.append(slice_both)
+    for value_slice in range(count_diff)[1:]:
+        if left_border is None:
+            left_border = value_slice * simple_diff
+        else:
+            left_border = left_border + simple_diff
+        if (value_slice + 1) == count_diff:
+            right_border = None
+        else:
+            right_border = int(right_border + simple_diff)
+        slice_both = (int(left_border), right_border)
+        list_slice_lots.append(slice_both)
+    return list_slice_lots
+
+# использовалось для поулчения словаря dict_data_auction_lot.py
+# all = sorted(get_auction_id_not_async(), reverse=True)
+# print(all)
+# print(get_slice_auction_for_request(all, 1626))
+# proxy = get_proxies()
+# proxy_ip_def = proxy.split(':')[0]
+# proxy_port_def = proxy.split(':')[1]
+# print(proxy)
+# def change_txt_ip():
+#     start = time.time()
+#     list_ip = []
+#     proxy = get_proxies()
+#     for pr in proxy:
+#         proxy_ip_def = pr.split(':')[0]
+#         proxy_port_def = pr.split(':')[1]
+#         prox = f"http://{proxy_ip_def}:{proxy_port_def}"
+#         list_ip.append(prox)
+#     final = time.time()
+#     print(final - start)
+#     return list_ip
+# print(change_txt_ip())
