@@ -163,8 +163,9 @@ trash
 .idea
 .env
 test.db
-./try_db/*.db
+./try_db
 *.db
 *.csv
 command.txt
 ./data_test/*.html
+./data_test/detail_lot.html

@@ -1,29 +1,7 @@
 import random
-from datetime import datetime
-from http import HTTPStatus
-
-import requests
 
 
-def get_data_from_page_pass_test(url: str = './data/lot1_.txt'):
-    """
-    Заглушка. Служит для получения html страницы без обращения к адресу сайта
-    :type url: str по дефолту стоит заглушка из текстового файла полученный путем запроса html страница
-    :return: текст html страницы
-    """
-    text_res = ""
-    with open(url, "r") as res:
-        # with open("../data_test/test_history_auction_all_page_text.txt", "r") as res:
-        text_res = res.read()
-    return text_res
-
-
-def get_data_from_page(url: str = 'data/res_test.txt'):
-    """
-    Заглушка. Служит для получения html страницы без обращения к адресу сайта
-    :type url: str по дефолту стоит заглушка из текстового файла полученный путем запроса html страница
-    :return: текст html страницы
-    """
+async def get_headers():
     list_headers = [
         {
             "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 YaBrowser/23.5.1.750 Yowser/2.5 Safari/537.36"},
@@ -108,33 +86,21 @@ def get_data_from_page(url: str = 'data/res_test.txt'):
             "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 YaBrowser/24.4.4.1160 Yowser/2.5 Safari/537.36"},
     ]
     headers = list_headers[random.randint(0, len(list_headers) - 1)]
-    # headers['sec-ch-ua'] = '"Chromium";v="112", "YaBrowser";v="23", "Not:A-Brand";v="99"'
-    # headers['sec-ch-ua-mobile'] = '?0'
-    # headers['sec-ch-ua-platform'] = "Linux"
-    head = {}
-    head['Accept'] = '*/*'
-    head['Accept-Encoding'] = 'gzip, deflate, br'
-    head['Accept-Language'] = 'ru,en;q=0.9,uk;q=0.8'
-    head['Connection'] = 'keep-alive'
-    head['Host'] = 'www.wolmar.ru'
-    head['Referer'] = 'https://www.wolmar.ru/auction/1983/6734540'
-    head['sec-ch-ua'] = '"Chromium";v="112", "YaBrowser";v="23", "Not:A-Brand";v="99"'
-    head['sec-ch-ua-mobile'] = '?0'
-    # head['sec-ch-ua-platform:'] = "Linux"
-    head['Sec-Fetch-Dest'] = 'empty'
-    head['Sec-Fetch-Mode'] = 'cors'
-    head['Sec-Fetch-Site'] = 'same-origin'
-    head[
-        'User-Agent'] = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 YaBrowser/23.5.1.750 Yowser/2.5 Safari/537.36'
-    head['X-Requested-With'] = 'XMLHttpRequest'
-    # cookies =
-
-    res = requests.get(url)
-    if res.status_code == HTTPStatus.OK:
-        start = datetime.now()
-        print(f"Начало обработки страницы аукциона {start}")
-        print(f"Получение данных из источника {url}")
-        return res.text
-# 206/118171
-# print(get_data_from_page(url='https://www.wolmar.ru/ajax/bids.php?auction_id=1983&lot_id=6734540'))
-# print(get_data_from_page(url='https://www.wolmar.ru/ajax/bids.php?auction_id=206&lot_id=118171'))
+    list_accept = [
+        "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
+        "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7"]
+    headers["Accept"] = list_accept[random.randint(0, len(list_accept) - 1)]
+    headers["sec-ch-ua"] = '"Chromium";v="112", "YaBrowser";v="23", "Not:A-Brand";v="99"'
+    headers["X-Requested-With"] = "XMLHttpRequest"
+    # headers["Sec-Fetch-Dest"] = "empty"
+    # headers["Sec-Fetch-User"] = "?1"
+    # headers["Sec-Fetch-Site"] = "none"
+    # headers["Sec-Fetch-Mode"] = "navigate"
+    # headers["Sec-Fetch-Dest"] = "document"
+    # headers["Host"] = "www.wolmar.ru"
+    # headers["Connection"] = "keep-alive"
+    # headers["Cache-Control"] = "max-age=0"
+    # headers["Accept-Language"] = "ru,en;q=0.9,uk;q=0.8"
+    # headers["Accept-Encoding"] = "gzip, deflate, br"
+    # headers["sec-ch-ua-mobile"] = "?0"
+    return headers

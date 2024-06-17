@@ -1,0 +1,924 @@
+WARNING:root:
+*************************
+Будут загружены эти данные[1987, 1986, 1985, 1984, 1983]
+*************************
+
+WARNING:root:
+===============================================
+Начало скирпта1718575362.7821317
+===============================================
+
+WARNING:root:
+*************************
+Будут c воркерами 5 загружены эти данные[1982, 1980, 1979, 1978, 1977, 1976, 1975, 1974, 1972, 1970, 1969, 1967, 1966, 1965, 1964, 1963, 1962, 1961, 1960, 1958, 1957, 1956, 1955, 1954, 1953, 1952, 1951, 1950, 1948, 1947, 1946, 1945, 1944, 1943, 1942, 1941, 1940, 1939, 1937, 1936, 1935, 1933, 1932, 1930, 1929]
+*************************
+
+ERROR:root:[2024-06-17 01:03:19.522775]Возбуждено исключение на запрос к сервисуОшибка при за запросе. Статус кода: 502Текст запроса: <coroutine object ClientResponse.text at 0x778260f43f40>===============================================
+ERROR:root:[2024-06-17 01:03:19.523922]Возбуждено исключение на запрос к сервисуОшибка при за запросе. Статус кода: 502Текст запроса: <coroutine object ClientResponse.text at 0x778260cdc200>===============================================
+ERROR:root:[2024-06-17 01:03:19.550554]Проблема в получении запроса Traceback (most recent call last):
+  File "/home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py", line 50, in get_page_data
+    raise HTTPError()
+aiohttp.web_exceptions.HTTPError
+===============================================
+ERROR:asyncio:Task exception was never retrieved
+future: <Task finished name='Task-1' coro=<gather_data() done, defined at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:63> exception=SystemExit()>
+Traceback (most recent call last):
+  File "/home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py", line 50, in get_page_data
+    raise HTTPError()
+aiohttp.web_exceptions.HTTPError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/asyncio/runners.py", line 47, in run
+    _cancel_all_tasks(loop)
+  File "/usr/lib/python3.10/asyncio/runners.py", line 63, in _cancel_all_tasks
+    loop.run_until_complete(tasks.gather(*to_cancel, return_exceptions=True))
+  File "/usr/lib/python3.10/asyncio/base_events.py", line 636, in run_until_complete
+    self.run_forever()
+  File "/usr/lib/python3.10/asyncio/base_events.py", line 603, in run_forever
+    self._run_once()
+  File "/usr/lib/python3.10/asyncio/base_events.py", line 1909, in _run_once
+    handle._run()
+  File "/usr/lib/python3.10/asyncio/events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "/home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py", line 81, in gather_data
+    await asyncio.gather(*tasks)
+  File "/usr/lib/python3.10/asyncio/runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "/usr/lib/python3.10/asyncio/base_events.py", line 636, in run_until_complete
+    self.run_forever()
+  File "/usr/lib/python3.10/asyncio/base_events.py", line 603, in run_forever
+    self._run_once()
+  File "/usr/lib/python3.10/asyncio/base_events.py", line 1909, in _run_once
+    handle._run()
+  File "/usr/lib/python3.10/asyncio/events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "/home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py", line 60, in get_page_data
+    sys.exit()
+SystemExit
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-2' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-3' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-4' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-5' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-6' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-7' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-8' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-9' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-10' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-11' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-12' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-13' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-14' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-15' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-16' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-17' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-18' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-19' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-20' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-21' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-22' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-23' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-24' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-25' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-26' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-27' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-28' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-29' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-30' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-31' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-32' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-33' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-34' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-35' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-36' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-37' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-38' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-39' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-40' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-41' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-42' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-43' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-44' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-45' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-46' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-47' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-48' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-49' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-50' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-51' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-52' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-53' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-54' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-55' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-56' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-57' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-58' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-59' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-60' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-61' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-62' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-63' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-64' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-65' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-66' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-67' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-68' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-69' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-70' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-71' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-72' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-73' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-74' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-75' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-76' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-77' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-78' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-79' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-80' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-81' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-82' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-83' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-84' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-85' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-86' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-87' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-88' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-90' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-91' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-92' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-93' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-94' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-95' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-96' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-97' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-98' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-99' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-100' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-101' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-102' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-103' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-104' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-105' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-106' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-107' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-108' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-109' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-110' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-111' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-112' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-113' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-114' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-115' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-116' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-117' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-118' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-119' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-120' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-121' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-122' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-123' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-124' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-125' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-126' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-127' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-128' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-129' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-130' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-131' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-132' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-133' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-134' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-135' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-136' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-137' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-138' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-139' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-140' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-141' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-142' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-143' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-144' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-145' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-146' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-147' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-148' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-149' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-150' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-151' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-152' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-153' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-154' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-155' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-156' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-157' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-158' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-159' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-160' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-161' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-162' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-163' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-164' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-165' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-166' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-167' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-168' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-169' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-170' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-171' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-172' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-173' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-174' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-175' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-176' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-177' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-178' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-179' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-180' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-181' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-182' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-183' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-184' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-185' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-186' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-187' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-188' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-189' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-190' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-192' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-193' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-194' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-195' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-196' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-197' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-198' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-199' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-200' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-201' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-202' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-203' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-204' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-205' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-206' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-207' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-208' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-209' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-210' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-211' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-212' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-213' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-214' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-215' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-216' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-217' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-218' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-219' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-220' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-221' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-222' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-223' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-224' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-225' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-226' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+WARNING:root:
+===============================================
+Начало скрипта 1718575573.3656466
+===============================================
+
+WARNING:root:
+*************************
+Будут c воркерами 2 загружены эти данные[1982, 1980, 1979, 1978, 1977, 1976, 1975, 1974, 1972, 1970, 1969, 1967, 1966, 1965, 1964, 1963, 1962, 1961, 1960, 1958, 1957, 1956, 1955, 1954, 1953, 1952, 1951, 1950, 1948, 1947, 1946, 1945, 1944, 1943, 1942, 1941, 1940, 1939, 1937, 1936, 1935, 1933, 1932, 1930, 1929]
+*************************
+
+ERROR:root:[2024-06-17 02:41:00.600559]Возбуждено исключение на запрос к сервисуОшибка при за запросе. Статус кода: 500Текст запроса: <coroutine object ClientResponse.text at 0x72a80a72c120>===============================================
+ERROR:root:[2024-06-17 02:41:00.602473]Возбуждено исключение на запрос к сервисуОшибка при за запросе. Статус кода: 500Текст запроса: <coroutine object ClientResponse.text at 0x72a80c31cba0>===============================================
+ERROR:root:[2024-06-17 02:41:00.602897]Возбуждено исключение на запрос к сервисуОшибка при за запросе. Статус кода:  Текст запроса: <coroutine object ClientResponse.text at 0x72a80a72e730>===============================================
+ERROR:root:[2024-06-17 02:41:00.603894]Проблема в получении запроса Traceback (most recent call last):
+  File "/home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py", line 50, in get_page_data
+    raise HTTPError()
+aiohttp.web_exceptions.HTTPError
+===============================================
+ERROR:asyncio:Task exception was never retrieved
+future: <Task finished name='Task-1' coro=<gather_data() done, defined at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:63> exception=SystemExit()>
+Traceback (most recent call last):
+  File "/home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py", line 50, in get_page_data
+    raise HTTPError()
+aiohttp.web_exceptions.HTTPError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/asyncio/runners.py", line 47, in run
+    _cancel_all_tasks(loop)
+  File "/usr/lib/python3.10/asyncio/runners.py", line 63, in _cancel_all_tasks
+    loop.run_until_complete(tasks.gather(*to_cancel, return_exceptions=True))
+  File "/usr/lib/python3.10/asyncio/base_events.py", line 636, in run_until_complete
+    self.run_forever()
+  File "/usr/lib/python3.10/asyncio/base_events.py", line 603, in run_forever
+    self._run_once()
+  File "/usr/lib/python3.10/asyncio/base_events.py", line 1909, in _run_once
+    handle._run()
+  File "/usr/lib/python3.10/asyncio/events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "/home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py", line 83, in gather_data
+  File "/usr/lib/python3.10/asyncio/runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "/usr/lib/python3.10/asyncio/base_events.py", line 636, in run_until_complete
+    self.run_forever()
+  File "/usr/lib/python3.10/asyncio/base_events.py", line 603, in run_forever
+    self._run_once()
+  File "/usr/lib/python3.10/asyncio/base_events.py", line 1909, in _run_once
+    handle._run()
+  File "/usr/lib/python3.10/asyncio/events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "/home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py", line 60, in get_page_data
+    sys.exit()
+SystemExit
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-2' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-3' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-4' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-5' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-6' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-7' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-8' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-9' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-10' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-12' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-13' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-14' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-15' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-16' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-17' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-18' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-19' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-20' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-21' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-22' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-23' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-24' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-26' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-27' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-28' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-29' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-30' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-32' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-33' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-34' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-35' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-36' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-37' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-38' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-39' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-40' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-41' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-42' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-44' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-45' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-46' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-49' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-50' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-52' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-53' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-56' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-57' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-58' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-59' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-60' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-61' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-63' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-64' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-65' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-66' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-67' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-68' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-69' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-70' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-71' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-72' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-73' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-74' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-75' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-76' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-77' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-78' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-79' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-80' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-81' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-82' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-83' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-84' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-86' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-87' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-88' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-89' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-90' coro=<get_page_data() running at /home/egor/PycharmProjects/work/walmar_numizmat_parser/get_info_lot_bids/async_src/get.py:32> cb=[gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720, gather.<locals>._done_callback() at /usr/lib/python3.10/asyncio/tasks.py:720]>
+WARNING:root:
+===============================================
+Начало скрипта 1718606270.5553737Начало скрипта 2024-06-17 09:37:50.555375
+===============================================
+
+WARNING:root:
+*************************
+Будут c воркерами 5 загружены эти данные[1928, 1927, 1926, 1925, 1924]
+*************************
+
+WARNING:root:
+===============================================
+Конец скрипта 1360.2237298488617Конец скрипта 0:22:40.223731
+===============================================
+
+WARNING:root:
+===============================================
+Начало скрипта 1718607905.4643264Начало скрипта 2024-06-17 10:05:05.464328
+===============================================
+
+WARNING:root:
+*************************
+Будут c работать воркерами 5 загружены эти данные[1923, 1922, 1920, 1919, 1918]
+*************************
+
+WARNING:root:
+===============================================
+Конец скрипта 1361.7295124530792Конец скрипта 0:22:41.729514
+===============================================
+
+WARNING:root:
+===============================================
+Начало скрипта 1718614364.5762627Начало скрипта 2024-06-17 11:52:44.576264
+===============================================
+
+WARNING:root:
+*************************
+Будут c работать воркерами 5 загружены эти данные[1917, 1916, 1914, 1913, 1912]
+*************************
+
+WARNING:root:
+===============================================
+Конец скрипта 1290.9694883823395Конец скрипта 0:21:30.969491
+===============================================
+
+WARNING:root:
+===============================================
+Начало скрипта 1718616175.7973688Начало скрипта 2024-06-17 12:22:55.797370
+===============================================
+
+WARNING:root:
+*************************
+Будут c работать воркерами 5 загружены эти данные[1911, 1909, 1908, 1907, 1906]
+*************************
+
+WARNING:root:
+===============================================
+Конец скрипта 1276.4309511184692Конец скрипта 0:21:16.430952
+===============================================
+
+WARNING:root:
+===============================================
+Начало скрипта 1718617494.9137728Начало скрипта 2024-06-17 12:44:54.913774
+===============================================
+
+WARNING:root:
+*************************
+Будут c работать воркерами 5 загружены эти данные[1905, 1904, 1903, 1902, 1900]
+*************************
+
+WARNING:root:
+===============================================
+Конец скрипта 1187.93252491951Конец скрипта 0:19:47.932526
+===============================================
+
+WARNING:root:
+===============================================
+Начало скрипта 1718618713.480812Начало скрипта 2024-06-17 13:05:13.480813
+===============================================
+
+WARNING:root:
+*************************
+Будут c работать воркерами 5 загружены эти данные[1899, 1898, 1897, 1896, 1895]
+*************************
+
+WARNING:root:
+===============================================
+Конец скрипта 1268.6857693195343Конец скрипта 0:21:08.685771
+===============================================
+
+WARNING:root:
+===============================================
+Начало скрипта 1718620080.696526Начало скрипта 2024-06-17 13:28:00.696527
+===============================================
+
+WARNING:root:
+*************************
+Будут c работать воркерами 3 загружены эти данные[1894, 1893, 1892, 1890, 1889, 1888, 1887, 1886, 1885, 1884]
+*************************
+
+WARNING:root:
+===============================================
+Конец скрипта 2430.0553698539734Конец скрипта 0:40:30.055371
+===============================================
+
+WARNING:root:
+===============================================
+Начало скрипта 1718622610.8457625Начало скрипта 2024-06-17 14:10:10.845764
+===============================================
+
+WARNING:root:
+*************************
+Будут c работать воркерами 3 загружены эти данные[1883, 1882, 1881, 1880, 1878, 1877, 1876, 1875, 1874, 1873]
+*************************
+
+WARNING:root:
+===============================================
+Конец скрипта 2536.040916442871Конец скрипта 0:42:16.040917
+===============================================
+
+WARNING:root:
+===============================================
+Начало скрипта 1718626306.1580567Начало скрипта 2024-06-17 15:11:46.158058
+===============================================
+
+WARNING:root:
+*************************
+Будут c работать воркерами 10 загружены эти данные[1872]
+*************************
+
+WARNING:root:
+===============================================
+Конец скрипта 374.83341455459595Конец скрипта 0:06:14.833416
+===============================================WARNING:root:
+
+
+WARNING:root:
+===============================================
+
+Создать воркеров 5
+
+Последний индекс списка загруженный в бд 101
+
+Хочу при каждой итерации сгружать аукцинов 1
+
+Установлена задержка после итерации 420
+
+Установлена задержка загрузки данных 60
+
+===============================================
+
+WARNING:root:
+===============================================
+Начало скрипта 1718629493.6337748Начало скрипта 2024-06-17 16:04:53.633776
+===============================================
+
+WARNING:root:
+*************************
+Будут c работать воркерами 5 загружены эти данные[1870]
+*************************
+
+WARNING:root:
+===============================================
+Конец скрипта 842.2311952114105Конец скрипта 0:14:02.231196
+===============================================
+
+WARNING:root:
+===============================================
+
+Создать воркеров 20
+
+Последний индекс списка загруженный в бд 102
+
+Хочу при каждой итерации сгружать аукцинов 1
+
+Установлена задержка безопасного отключения 60
+
+===============================================
+
+WARNING:root:
+===============================================
+Начало скрипта 1718630433.358279Начало скрипта 2024-06-17 16:20:33.358280
+===============================================
+
+WARNING:root:
+*************************
+Будут c работать воркерами 20 загружены эти данные[1869]
+*************************
+
+WARNING:root:
+===============================================
+Конец скрипта 249.3000385761261Конец скрипта 0:04:09.300039
+===============================================
+
+WARNING:root:
+===============================================
+Начало скрипта 1718630433.358279Начало скрипта 2024-06-17 16:20:33.358280
+===============================================
+
+WARNING:root:
+*************************
+Будут c работать воркерами 20 загружены эти данные[1868]
+*************************
+
+WARNING:root:
+===============================================
+Конец скрипта 609.6077990531921Конец скрипта 0:10:09.607800
+===============================================
+
