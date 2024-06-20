@@ -93,14 +93,14 @@ async def get_headers():
     headers["sec-ch-ua"] = '"Chromium";v="112", "YaBrowser";v="23", "Not:A-Brand";v="99"'
     headers["X-Requested-With"] = "XMLHttpRequest"
     # headers["Sec-Fetch-Dest"] = "empty"
-    # headers["Sec-Fetch-User"] = "?1"
+    headers["Sec-Fetch-User"] = "?1"
     # headers["Sec-Fetch-Site"] = "none"
     # headers["Sec-Fetch-Mode"] = "navigate"
     # headers["Sec-Fetch-Dest"] = "document"
     # headers["Host"] = "www.wolmar.ru"
     # headers["Connection"] = "keep-alive"
     # headers["Cache-Control"] = "max-age=0"
-    # headers["Accept-Language"] = "ru,en;q=0.9,uk;q=0.8"
-    # headers["Accept-Encoding"] = "gzip, deflate, br"
+    headers["Accept-Language"] = "ru,en;q=0.9,uk;q=0.8"
+    headers["Accept-Encoding"] = "gzip, deflate, br"
     # headers["sec-ch-ua-mobile"] = "?0"
     return headers

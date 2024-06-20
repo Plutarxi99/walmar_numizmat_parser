@@ -1,7 +1,9 @@
 import asyncio
+import csv
 import datetime
 
 import sys
+import time
 import traceback
 from http import HTTPStatus
 
@@ -13,7 +15,7 @@ from aiohttp.web_exceptions import HTTPError
 from get_info_lot_bids.async_src.as_pg_async_write_html import add_html_str_pg_asyncpg
 
 from get_info_lot_bids.async_src.func import make_url_for_get_data_async, get_lot_id_async, \
-    get_diff_for_equally_async
+    get_diff_for_equally_async, write_in_csv_for_loss_url
 from get_info_lot_bids.async_src.help_for_request.list_id_auction import list_id_hidden_auction
 from get_info_lot_bids.async_src.help_for_request.list_proxies import get_proxies
 from get_info_lot_bids.async_src.help_for_request.list_user_agent import get_headers
@@ -23,47 +25,191 @@ logging.basicConfig(level=logging.WARNING, filename="log_async.log", filemode="a
 
 
 async def get_page_data(id_auction, left_slice, right_slice, list_id_lot):
-    for id_lot in list_id_lot[left_slice:right_slice]:
-        url = await make_url_for_get_data_async(id_auction, id_lot)
-        # proxy_url = 'https://papaproxy.net/api/getproxy/?r=1&format=txt&type=http_ip&login=RUSHE479U2&password=TviZ4Ak2'
-        proxy = await get_proxies()
-        try:
-            headers = await get_headers()
-            async with aiohttp.ClientSession() as session:
-                # proxy = await session.get(url=proxy_url, headers=headers)
-                response = await session.get(url=url, headers=headers, proxy=proxy)
-                # response = await session.get(url=url, headers=headers, proxies=proxies)
-                # response = await session.get(url=url, headers=headers)
-                if response.status == HTTPStatus.OK:
-                    response_text = await response.text()
-                    await add_html_str_pg_asyncpg(html=response_text, id_lot_hidden=id_lot,
-                                                  id_auction_hidden=id_auction)
-                    print(f"Отработан аукцион {id_auction}\n"
-                          f"Отработан лот {id_lot}\n")
-                else:
-                    date_wrong = datetime.datetime.now()
-                    logging.error(f"[{date_wrong}]"
-                                  f"Возбуждено исключение на запрос к сервису"
-                                  f"Ошибка при за запросе. Статус кода: {response.status}"
-                                  f"Текст запроса: {response.text()}"
-                                  f"{url}"
-                                  f"{proxy}"
-                                  f"===============================================")
-                    with open("last_url.txt", 'a') as t:
-                        t.write(f"{url}\n")
-                    # raise HTTPError()
+    list_url_loss = []  # для получения не удачных запросов к этим url(не работает)
+    try_connect = True  # флаг ждя записи, если вылезла ошибка(не работает)
+    data_req = []
+    for id_lot in list_id_lot[left_slice:right_slice]:  # идём по циклу получаем срез списка, указанный ранее
+        url = await make_url_for_get_data_async(id_auction, id_lot)  # получаем url
+        proxy = await get_proxies()  # получаем случаный прокси-сервер(заранее заготовленный список, можно получать по url случайный ip)
+        if try_connect:
+            try:
+                headers = await get_headers()  # получаем случайный заголовок(возможно избегает блокировку)
+                async with aiohttp.ClientSession() as session:
+                    response = await session.get(url=url, headers=headers, proxy=proxy)
+                    if response.status == 200:
+                        response_text = await response.text()  # запрос превращаем текста для дальнейшего парсинга
+                        # try_conn_db = await add_html_str_pg_asyncpg(html=response_text, id_lot_hidden=id_lot,
+                        #                                             id_auction_hidden=id_auction,
+                        #                                             try_connect=try_connect)  # запись в базу данных
+                        # try_connect = try_conn_db
 
-        except Exception as e:
-            date_wrong = datetime.datetime.now()
-            logging.error(f"[{date_wrong}]"
-                          f"Проблема в получении запроса {e}"
-                          f"url запроса <{url}>"
-                          f"proxy <{proxy}>"
-                          f"{traceback.format_exc()}"
-                          f"===============================================")
-            push_note_mail(email_text=f"Упала ошибка. Проблема в получении данных {e}",
-                           subject_email="Проблема с таблицей платежей лотов")
-            sys.exit()
+                        tuple_data = (response_text, id_lot, id_auction)
+                        data_req.append(tuple_data)
+                        # if len(data)
+                        #     pass
+                        # try_conn_db = await add_html_str_pg_asyncpg(html=response_text, id_lot_hidden=id_lot,
+                        #                                             id_auction_hidden=id_auction,
+                        #                                             try_connect=try_connect)  # запись в базу данных
+                        # print("Выполненно")
+                        # with open("test_async.csv", "w", newline='') as file:
+                        #     csv.writer(file).writerow(data_req)
+                        # try_connect = try_conn_db
+
+                        # print(f"Отработан аукцион {id_auction}\n"
+                        #       f"Отработан лот {id_lot}\n")
+                    else:
+                        # date_wrong = datetime.datetime.now()
+                        logging.error(f"[date_wrong]"
+                                      f"Возбуждено исключение на запрос к сервису"
+                                      # f"Ошибка при за запросе. Статус кода: {response.status}"
+                                      # f"Текст запроса: {response.text()}"
+                                      f"{url}"
+                                      f"{proxy}"
+                                      f"===============================================")
+                        # with open("last_url.txt", 'a') as t:
+                        #     t.write(f"{url}\n")
+                        # raise HTTPError()
+            except aiohttp.client_exceptions.ClientProxyConnectionError as e:  # отлов ошибки (интересная штука, что-то возбуждает исключение, что прокси в запросе не работает, но по факту работает и запрос проходит успешно. Также запрашиваемые данные успешно отсылаются) Поэтому, я после этой ошибки записываю данные в бд
+                # print("ClientProxyConnectionError")
+
+                # date_wrong = datetime.datetime.now()
+                # logging.error(f"==============================================="
+                #               f"\n[{date_wrong}]\n"
+                #               f"Проблема с прокси {e}\n"
+                #               f"{response.status}\n"
+                #               # f"{response_text}\n"
+                #               f"url запроса <{url}>\n"
+                #               f"proxy <{proxy}>\n"
+                #               # f"{traceback.format_exc()}\n"
+                #               f"===============================================")
+                # push_note_mail(email_text=f"Упала ошибка. Проблема в получении данных {e}",
+                #                subject_email="Проблема с прокси. Парсер приостановлен на 60 сек")
+                # with open("last_url.txt", 'a') as t:
+                #     t.write(f"{url}\n")
+                # with open("problem_proxy.txt", 'a') as t:
+                # t.write(f"{proxy}\n")
+                # time.sleep(60)
+                # try_connect += 1
+                try:
+                    if response.status == 200:
+                        tuple_data = (response_text, id_lot, id_auction)
+                        data_req.append(tuple_data)
+                    else:
+                        print(f"ClientProxyConnectionError | "
+                              f"status = {response.status} | "
+                              f"{e} | "
+                              "Уходит в сон")
+                        # try_connect = False
+                        # заглушка для искусственного торможения итерации, чтобы в случаи ошибки. Скрипт не молотил в холостую
+                        # time.sleep(0.1)
+                        continue
+                except UnboundLocalError as e:
+                    print(f"ClientProxyConnectionError | UnboundLocalError"
+                          f"status = response.status | "
+                          f"{e} | "
+                          "Уходит в сон")
+                    continue
+
+                    # try_conn_db = await add_html_str_pg_asyncpg(html=response_text, id_lot_hidden=id_lot,
+                    #                                             id_auction_hidden=id_auction, try_connect=try_connect)
+                    # try_connect = try_conn_db
+
+                    # tuple_data = (response_text, id_lot, id_auction)
+                    # data_req.append(tuple_data)
+                # else:
+                #     print(f"ClientProxyConnectionError | "
+                #           f"status = {response.status} | "
+                #           f"{e} | "
+                #           "Уходит в сон")
+                #     try_connect = False
+                #     # заглушка для искусственного торможения итерации, чтобы в случаи ошибки. Скрипт не молотил в холостую
+                #     time.sleep(20)
+            except aiohttp.client_exceptions.ClientHttpProxyError as e:
+                print("ClientHttpProxyError")
+
+                # if response.status == 200:
+                    # try_conn_db = await add_html_str_pg_asyncpg(html=response_text, id_lot_hidden=id_lot,
+                    #                                             id_auction_hidden=id_auction, try_connect=try_connect)
+                    # try_connect = try_conn_db
+
+                tuple_data = (response_text, id_lot, id_auction)
+                data_req.append(tuple_data)
+                # else:
+                # print(f"ClientHttpProxyError | "
+                      # f"status = {response.status} | "
+                      # f"{e} | "
+                      # "Уходит в сон")
+                    # try_connect = False
+                    # заглушка для искусственного торможения итерации, чтобы в случаи ошибки. Скрипт не молотил в холостую
+                    # time.sleep(20)
+            except OSError as e:
+                print("OSError")
+                # date_wrong = datetime.datetime.now()
+                # logging.error(f"====="
+                #               f"OSError ")
+                              # f"| [{date_wrong}] "
+                              # f"| Проблема в получении запроса {e}\n"
+                              # f"| url запроса <{url}>\n"
+                              # f"| response.status = {response.status} "
+                              # f"| proxy <{proxy}>"
+                              # f"=====")
+                # push_note_mail(email_text=f"Упала ошибка. Проблема в получении данных {e}",
+                #                subject_email="Проблема с запросом. Парсер перестал работать")
+                # print(f"response.status = {response.status}\n"
+                #       "Уходит в сон")
+                # try_connect = False
+                # print(f'try_connect = {try_connect}')
+                # print(f"{response.status}"
+                #       "Уходит в сон")
+                # time.sleep(120)
+                # if response.status == 200:
+                    # try_conn_db = await add_html_str_pg_asyncpg(html=response_text, id_lot_hidden=id_lot,
+                    #                                             id_auction_hidden=id_auction, try_connect=try_connect)
+                    # try_connect = try_conn_db
+
+                tuple_data = (response_text, id_lot, id_auction)
+                data_req.append(tuple_data)
+                # else:
+                print(f"| OSError | {response.status}"
+                      "Уходит в сон. ")
+                    # try_connect = False
+                    # time.sleep(20)
+                continue
+            except UnboundLocalError as e:
+                print(e)
+            except Exception as e:
+                # date_wrong = datetime.datetime.now()
+                # logging.error(f"====="
+                #               f"Exception "
+                #               f"| [{date_wrong}] "
+                #               f"| Проблема в получении запроса {e}\n"
+                #               f"url запроса <{url}>\n"
+                #               f"| response.status = {response.status} "
+                #               f"| proxy <{proxy}>"
+                #               # f"{traceback.format_exc()}"
+                #               f"=====")
+                # push_note_mail(email_text=f"Упала ошибка. Проблема в получении данных {e}",
+                #                subject_email="Проблема с запросом. Парсер перестал работать")
+                # with open("last_url.txt", 'a') as t:
+                #     t.write(f"{url}\n")
+                # with open("problem_proxy.txt", 'a') as t:
+                #     t.write(f"{proxy}\n")
+                # print(f"{response.status}"
+                #       "Уходит в сон")
+                # try_connect = False
+                print(f'try_connect = {try_connect}')
+                # time.sleep(20)
+        else:
+            list_url_loss.append(url)  # продолжение итерации для получение не записанный url адресов в бд
+
+    # print(data_req)
+    # with open("test_async.csv", "w", newline='') as file:
+    #     csv.writer(file).writerow(data_req)
+    await add_html_str_pg_asyncpg(data=data_req, try_connect=True)
+    print(f"Запись прошла успешна {id_auction}: [{left_slice} -- {right_slice}]")
+    # if try_connect is False:
+    #     print("Запись не полученных данных")
+    #     write_in_csv_for_loss_url(list_url=list_url_loss)
 
 
 async def gather_data(count_create_task, list_id_auction):
@@ -99,9 +245,11 @@ async def gather_data(count_create_task, list_id_auction):
     logging.warning(
         f"\n*************************\nБудут c работать воркерами {count_create_task} загружены эти данные{list_id_auction}\n*************************\n")
     for id_auction in list_id_auction:
-        list_id_lot = await get_lot_id_async(id_auction)
+        list_id_lot = await get_lot_id_async(
+            id_auction)  # получение всех лотов для аукциона (получение из бд, которая была получена путем обращения к аукционам)
         print(f"Получение списка лота для {id_auction}")
-        list_slice = await get_diff_for_equally_async(id_auction, count_create_task)
+        list_slice = await get_diff_for_equally_async(id_auction,
+                                                      count_create_task)  # для получения списка срезов, которые делят по равным частям для каждого воркера список лотов в аукционе
         for slice_border in list_slice:
             task = asyncio.create_task(
                 get_page_data(id_auction, slice_border[0], slice_border[1], list_id_lot))

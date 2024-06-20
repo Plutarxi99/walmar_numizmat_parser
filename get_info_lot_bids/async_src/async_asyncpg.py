@@ -40,3 +40,5 @@ async def add_record_pg_asyncpg(data, id_hidden_lot):
         push_note_mail(email_text=f"Упала ошибка. Проблема с записью в бд {e}",
                        subject_email="Проблема с бд")
         sys.exit()
+
+

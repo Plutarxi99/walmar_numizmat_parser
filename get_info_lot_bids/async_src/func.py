@@ -1,4 +1,5 @@
 import asyncio
+import csv
 import datetime
 import logging
 import sys
@@ -20,7 +21,7 @@ logging.basicConfig(level=logging.WARNING, filename="log_async.log", filemode="a
 async def get_clear_data_async(data):
     # def get_clear_data_async(data):
     """
-    Получение отфильтрованных данных
+    Получение отфильтрованных данных. В данный момент не используется из-за изкой скорости
     :param data: полученная страница из запроса
     :return: {'amount_bid': int, 'nickname': str, 'datetime_pay': str, 'status': str}
     """
@@ -81,6 +82,12 @@ async def get_clear_data_async(data):
 
 
 async def make_url_for_get_data_async(id_auction_hidden, id_lot_hidden):
+    """
+    Функция для получения корректного url адреса для получения страницы со ставками
+    :param id_auction_hidden: id аукциона в url
+    :param id_lot_hidden: id лота в url
+    :return: https://www.wolmar.ru/ajax/bids.php?auction_id=1999&lot_id=999999999&time=1234567890
+    """
     time_unix = int(time.time())
     pattern = "https://www.wolmar.ru/ajax/bids.php?auction_id=%s&lot_id=%s&time=%s" % (
         id_auction_hidden, id_lot_hidden, time_unix)
@@ -116,7 +123,7 @@ def get_auction_id_not_async() -> list:
 
 def create_dict_record_in_auction(list_id_auctions):
     """
-
+    ???
     :param list_id_auctions:
     :return: {1: 6000, 2: 6000, 3: 6000, }
     """
@@ -135,7 +142,7 @@ def get_slice_auction_for_request(all_id_auction, count_rec_in_list):
 
 async def get_diff_for_equally_async(id_auction, count_diff) -> list:
     """
-
+    Служит для получения пар срезов для разрезания списка id lot для распределения на равные части и передачи их в цикл событий асинхронной функции запросов
     :param id_auction: индефикатора в url аукциона
     :param count_diff: количество делений задач на равные части для делегирования асинхронности
     :return:
@@ -165,6 +172,7 @@ async def get_diff_for_equally_async(id_auction, count_diff) -> list:
         list_slice_lots.append(slice_both)
     return list_slice_lots
 
+
 # использовалось для поулчения словаря dict_data_auction_lot.py
 # all = sorted(get_auction_id_not_async(), reverse=True)
 # print(all)
@@ -186,3 +194,16 @@ async def get_diff_for_equally_async(id_auction, count_diff) -> list:
 #     print(final - start)
 #     return list_ip
 # print(change_txt_ip())
+# TODO: Эта функция не работает
+def write_in_csv_for_loss_url(list_url):
+    """
+    Запись url после отлова ошибки при парсинге
+    Если произошла ошибка, то подключение не возможно восстановить
+    ТО есть продолжается цикл получения url и этот url записывается в csv
+    :param url:
+    :return:
+    """
+    with open('loss_url.csv', 'a', newline='') as filename:
+        write_filename = csv.writer(filename, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
+        for url in list_url:
+            write_filename.writerow([url])
