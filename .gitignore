@@ -166,6 +166,9 @@ test.db
 ./try_db
 *.db
 *.csv
-command.txt
+./command.txt
 ./data_test/*.html
 ./data_test/detail_lot.html
+get_info_lot_and_bids/help_for_request_bids/list_proxies_static.py
+get_info_lot_and_bids/help_for_request_bids/lost_auction.py
+get_info_lot_and_bids/help_for_request_bids/list_user_agent_static.py

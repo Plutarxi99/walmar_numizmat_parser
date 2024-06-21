@@ -2,9 +2,9 @@ import datetime
 
 from bs4 import BeautifulSoup
 
-from database.db import SessionLocal
-from database.models import LotAuction
-from get_info_lot_bids.src.get import get_data_bids_pass_test, get_data_bids
+from get_info_auction_and_lot.src_auction.db import SessionLocal
+from get_info_auction_and_lot.src_auction.models import LotAuction
+from get_info_lot_bids.src.get import get_data_bids
 
 
 # TODO: 0:00:00.266212 обработка одного запроса для получение всех ставок

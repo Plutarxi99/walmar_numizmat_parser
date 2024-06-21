@@ -4,11 +4,30 @@ tmux new-session -s parser
 подключиться к окну
 tmux attach -t parser
 
+cd PycharmProjects/work/walmar_numizmat_parser/
+source env/bin/activate
+cd get_info_lot_bids/async_src/
+python3 main_async.py
+
+
+ssh egor-server@192.168.0.22
+Werthvfy2033
+
+cat my_proj/walmar_numizmat_parser/get_info_lot_bids/async_src/log_async.log
+
+free -m
+htop
+
 выйти из сессии
 ctrl + b d
 
 посмотреть список
 tmux ls
+
+
+sudo vim /etc/postgresql/14/main/postgresql.conf
+max_connections = 100 -> 350 -> 1000
+shared_buffers = 128MB -> 256MB
 
 cd PycharmProjects/work/walmar_numizmat_parser/
 source env/bin/activate
@@ -23,10 +42,48 @@ source env/bin/activate
 --     status varchar(20),
 --     uniq_str varchar(40) UNIQUE
 -- );
+
+
+CREATE TABLE html_test
+(
+	id SERIAL PRIMARY KEY,
+	html TEXT,
+	id_lot_hidden integer,
+	id_auction_hidden integer);
 INSERT INTO bids(id_hidden_lot, amount_bid, nickname, datetime_pay) VALUES(1, 1, 1, 2024-1-1);
+
+изменить имя таблицы в в дампе таблице
+sed 's/html_str/html_str_5/g' ./table_walmart_coin_2.sql > table_wc_2.sql
+
+вставить из одной таблицы в другую
+INSERT INTO html_test_final (html, id_lot_hidden, id_auction_hidden)
+SELECT html, id_lot_hidden, id_auction_hidden
+FROM html_str_5;
 
 
 ALTER TABLE bids ADD UNIQUE (uniq_str);
 ALTER TABLE bids ADD COLUMN uniq_str varchar(40);
 
+\c walmart_coin;
 SELECT pg_size_pretty( pg_total_relation_size( 'html_str' ) );
+
+посмотреть дубликаты
+SELECT id_lot_hidden, COUNT(*)
+FROM html_test_final
+GROUP BY id_lot_hidden
+HAVING COUNT(*) > 1;
+
+Частично загруженные id auction
+[1778, 1777, 1775, 1774, 1773] 184
+[1783, 1782, 1781, 1780, 1779] 179
+[1789, 1788, 1787, 1785, 1784] 174
+[1856, 1855, 1854, 1853, 1852] 114
+[1862, 1860, 1859, 1858, 1857] 109
+[1982, 1980, 1979, 1978, 1977,
+1976, 1975, 1974, 1972, 1970,1969,
+1967, 1966, 1965, 1964, 1963, 1962,
+1961, 1960, 1958, 1957, 1956, 1955,
+1954, 1953,1952, 1951, 1950, 1948,
+1947, 1946, 1945, 1944, 1943, 1942,
+1941, 1940, 1939, 1937, 1936,1935,
+1933, 1932, 1930, 1929]
