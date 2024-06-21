@@ -166,6 +166,6 @@ test.db
 ./try_db
 *.db
 *.csv
-command.txt
+./command.txt
 ./data_test/*.html
 ./data_test/detail_lot.html

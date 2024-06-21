@@ -12,11 +12,13 @@ load_dotenv(BASE_DIR / '.env')
 
 class Settings:
     PATH_TO_DB = BASE_DIR / os.getenv('PATH_TO_DB')
+    PATH_TO_DB_LOSS = BASE_DIR / os.getenv('PATH_TO_DB_LOSS')
     URL_DOMEN = os.getenv('URL_DOMEN')
     NAME_BD = os.getenv('PATH_TO_DB')
     NAME_CSV = os.getenv('NAME_CSV')
     NAME_TABLE = os.getenv('NAME_TABLE')
     SQLALCHEMY_DATABASE_URL = f"sqlite:///{PATH_TO_DB}"
+    SQLALCHEMY_DATABASE_URL_LOSS = f"sqlite:///{PATH_TO_DB_LOSS}"
     ADMIN_EMAIL = os.getenv('ADMIN_EMAIL')
     SERVER_EMAIL = os.getenv('SERVER_EMAIL')
     SERVER_PASSWORD = os.getenv('SERVER_PASSWORD')
