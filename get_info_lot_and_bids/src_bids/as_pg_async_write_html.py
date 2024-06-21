@@ -25,7 +25,7 @@ async def add_html_str_pg_asyncpg(data, type_work="asyncpg") -> None:
     :return: None
     """
     try:
-        if type_work == "sqllite3":
+        if type_work == settings.TYPE_WORK:
             models_bids.BaseBids.metadata.create_all(bind=engine_bids)
             list_data_for_insert = []
             for tuple_item in data:
@@ -38,16 +38,14 @@ async def add_html_str_pg_asyncpg(data, type_work="asyncpg") -> None:
             with SessionBids() as session:
                 session.bulk_insert_mappings(HtmlStr, list_data_for_insert)
                 session.commit()
-        elif type_work == "asyncpg":
+        # elif type_work == "asyncpg":
+        else:
             conn = await asyncpg.connect(settings.SQLALCHEMY_DATABASE_URL_POSTGRES)
             await conn.executemany('''
                         INSERT INTO (html, id_lot_hidden, id_auction_hidden) VALUES($1, $2, $3)
                     ''', data)
 
             await conn.close()
-        else:
-            print("Такого типа работы не существует")
-            sys.exit()
     except Exception as e:
         date_wrong = datetime.datetime.now()
         logging.error(f"[{date_wrong}]"

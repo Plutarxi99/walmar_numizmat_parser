@@ -70,15 +70,14 @@ def get_data_in_db(a, b, table_name, type_work):
     Получение данных из бд postgresql ввиде списка
     :return: TODO: дополнить данные
     """
-    if type_work == "sqllite3":
+    if type_work == settings.TYPE_WORK:
         with SessionBids() as session:
             if a != b:
-                # res = session.query(HtmlStr).filter(HtmlStr.id_auction_hidden.between(a, b)).all()
-                # res = session.query(HtmlStr).filter(HtmlStr.id_auction_hidden.between(a, b)).first()
                 res = [(x.id, x.html, x.id_lot_hidden, x.id_auction_hidden) for x in
                        session.query(HtmlStr).filter(HtmlStr.id_auction_hidden.between(a, b)).all()]
             else:
-                res = session.query(HtmlStr).filter(HtmlStr.id_auction_hidden == a).all()
+                res = [(x.id, x.html, x.id_lot_hidden, x.id_auction_hidden) for x in
+                       session.query(HtmlStr).filter(HtmlStr.id_auction_hidden == a).all()]
             return res
     else:
         conn = psycopg2.connect(dbname=settings.POSTGRES_DB, user=settings.POSTGRES_USER,
