@@ -16,7 +16,7 @@ from get_info_lot_bids.async_src.as_pg_async_write_html import add_html_str_pg_a
 
 from get_info_lot_bids.async_src.func import make_url_for_get_data_async, get_lot_id_async, \
     get_diff_for_equally_async, write_in_csv_for_loss_url
-from get_info_lot_bids.async_src.help_for_request.list_id_auction import list_id_hidden_auction
+# from get_info_lot_bids.async_src.help_for_request.list_id_auction import list_id_hidden_auction # TODO: раскоммитить
 from get_info_lot_bids.async_src.help_for_request.list_proxies import get_proxies
 from get_info_lot_bids.async_src.help_for_request.list_user_agent import get_headers
 from src.note_finally_parser import push_note_mail
@@ -94,6 +94,9 @@ async def get_page_data(id_auction, left_slice, right_slice, list_id_lot):
                     if response.status == 200:
                         tuple_data = (response_text, id_lot, id_auction)
                         data_req.append(tuple_data)
+                    elif response.status == 500:
+                        tuple_data = (response_text, id_lot, id_auction)
+                        data_req.append(tuple_data)
                     else:
                         print(f"ClientProxyConnectionError | "
                               f"status = {response.status} | "
@@ -128,31 +131,49 @@ async def get_page_data(id_auction, left_slice, right_slice, list_id_lot):
                 print("ClientHttpProxyError")
 
                 # if response.status == 200:
-                    # try_conn_db = await add_html_str_pg_asyncpg(html=response_text, id_lot_hidden=id_lot,
-                    #                                             id_auction_hidden=id_auction, try_connect=try_connect)
-                    # try_connect = try_conn_db
-
-                tuple_data = (response_text, id_lot, id_auction)
-                data_req.append(tuple_data)
+                # try_conn_db = await add_html_str_pg_asyncpg(html=response_text, id_lot_hidden=id_lot,
+                #                                             id_auction_hidden=id_auction, try_connect=try_connect)
+                # try_connect = try_conn_db
+                try:
+                    if response.status == 200:
+                        tuple_data = (response_text, id_lot, id_auction)
+                        data_req.append(tuple_data)
+                    else:
+                        print(f"ClientHttpProxyError | "
+                              f"status = {response.status} | "
+                              f"{e} | "
+                              "Уходит в сон")
+                        # try_connect = False
+                        # заглушка для искусственного торможения итерации, чтобы в случаи ошибки. Скрипт не молотил в холостую
+                        # time.sleep(0.1)
+                        continue
+                except UnboundLocalError as e:
+                    print(f"ClientHttpProxyError | UnboundLocalError"
+                          f"status = response.status | "
+                          f"{e} | "
+                          "Уходит в сон")
+                    continue
+                # tuple_data = (response_text, id_lot, id_auction)
+                # data_req.append(tuple_data)
                 # else:
                 # print(f"ClientHttpProxyError | "
-                      # f"status = {response.status} | "
-                      # f"{e} | "
-                      # "Уходит в сон")
-                    # try_connect = False
-                    # заглушка для искусственного торможения итерации, чтобы в случаи ошибки. Скрипт не молотил в холостую
-                    # time.sleep(20)
+                # f"status = {response.status} | "
+                # f"{e} | "
+                # "Уходит в сон")
+                # try_connect = False
+                # заглушка для искусственного торможения итерации, чтобы в случаи ошибки. Скрипт не молотил в холостую
+                # time.sleep(20)
             except OSError as e:
                 print("OSError")
                 # date_wrong = datetime.datetime.now()
                 # logging.error(f"====="
                 #               f"OSError ")
-                              # f"| [{date_wrong}] "
-                              # f"| Проблема в получении запроса {e}\n"
-                              # f"| url запроса <{url}>\n"
-                              # f"| response.status = {response.status} "
-                              # f"| proxy <{proxy}>"
-                              # f"=====")
+                # f"| [{date_wrong}] "
+                # f"| Проблема в получении запроса {e}\n"
+                # f"| url запроса <{url}>\n"
+                # f"| response.status = {response.status} "
+                # f"| proxy <{proxy}>"
+                # f"=====")
                 # push_note_mail(email_text=f"Упала ошибка. Проблема в получении данных {e}",
                 #                subject_email="Проблема с запросом. Парсер перестал работать")
                 # print(f"response.status = {response.status}\n"
@@ -163,17 +184,35 @@ async def get_page_data(id_auction, left_slice, right_slice, list_id_lot):
                 #       "Уходит в сон")
                 # time.sleep(120)
                 # if response.status == 200:
-                    # try_conn_db = await add_html_str_pg_asyncpg(html=response_text, id_lot_hidden=id_lot,
-                    #                                             id_auction_hidden=id_auction, try_connect=try_connect)
-                    # try_connect = try_conn_db
-
-                tuple_data = (response_text, id_lot, id_auction)
-                data_req.append(tuple_data)
+                # try_conn_db = await add_html_str_pg_asyncpg(html=response_text, id_lot_hidden=id_lot,
+                #                                             id_auction_hidden=id_auction, try_connect=try_connect)
+                # try_connect = try_conn_db
+                try:
+                    if response.status == 200:
+                        tuple_data = (response_text, id_lot, id_auction)
+                        data_req.append(tuple_data)
+                    else:
+                        print(f"OSError | "
+                              f"status = {response.status} | "
+                              f"{e} | "
+                              "Уходит в сон")
+                        # try_connect = False
+                        # заглушка для искусственного торможения итерации, чтобы в случаи ошибки. Скрипт не молотил в холостую
+                        # time.sleep(0.1)
+                        continue
+                except UnboundLocalError as e:
+                    print(f"OSError | UnboundLocalError"
+                          f"status = response.status | "
+                          f"{e} | "
+                          "Уходит в сон")
+                    continue
+                # tuple_data = (response_text, id_lot, id_auction)
+                # data_req.append(tuple_data)
                 # else:
                 print(f"| OSError | {response.status}"
                       "Уходит в сон. ")
-                    # try_connect = False
-                    # time.sleep(20)
+                # try_connect = False
+                # time.sleep(20)
                 continue
             except UnboundLocalError as e:
                 print(e)
@@ -244,10 +283,13 @@ async def gather_data(count_create_task, list_id_auction):
     # list_id_auction = list_id_hidden_auction[past_i_want_auction:get_i_want_auction]
     logging.warning(
         f"\n*************************\nБудут c работать воркерами {count_create_task} загружены эти данные{list_id_auction}\n*************************\n")
+    # по полученному списку аукционов мы итереруемся
     for id_auction in list_id_auction:
+        # получение списка всех лотов, котоорый есть в аукционе, берется из бд, которая есть в проекте
         list_id_lot = await get_lot_id_async(
             id_auction)  # получение всех лотов для аукциона (получение из бд, которая была получена путем обращения к аукционам)
         print(f"Получение списка лота для {id_auction}")
+        # делим каждый список лотов на равные части, которые указали изначально как делителем count_create_task
         list_slice = await get_diff_for_equally_async(id_auction,
                                                       count_create_task)  # для получения списка срезов, которые делят по равным частям для каждого воркера список лотов в аукционе
         for slice_border in list_slice:

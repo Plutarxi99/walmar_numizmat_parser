@@ -9,9 +9,12 @@ import traceback
 from bs4 import BeautifulSoup
 
 from database.db import SessionLocal
+from database.db_for_loss_data import SessionLocalLoss, LotAuctionLoss
 from database.models import LotAuction
-from get_info_lot_bids.async_src.help_for_request.dict_data_auction_lot import dict_auction_lot
-from get_info_lot_bids.async_src.help_for_request.list_id_auction import list_id_hidden_auction
+# from get_info_lot_bids.async_src.help_for_request.dict_data_auction_lot import dict_auction_lot # TODO:раскоммитить
+from get_info_lot_bids.async_src.help_for_request.dict_data_auction_lot import dict_auction_lot_loss
+# from get_info_lot_bids.async_src.help_for_request.list_id_auction import list_id_hidden_auction # T# TODO:раскоммитить
+from get_info_lot_bids.async_src.help_for_request.list_id_auction import list_id_hidden_auction_loss
 from get_info_lot_bids.async_src.help_for_request.list_proxies import get_proxies
 from src.note_finally_parser import push_note_mail
 
@@ -94,36 +97,51 @@ async def make_url_for_get_data_async(id_auction_hidden, id_lot_hidden):
     return pattern
 
 
+# TODO: раскмомитить
 async def get_lot_id_async(id_auction_hidden):
+# def get_lot_id_async(id_auction_hidden):
     """
     Получение списка лотов по id аукциона
     :param id_auction_hidden: 1987
     :return: [6611341, 6611342, 6611343, 6611344]
     """
-    with SessionLocal() as session:
-        r = [x.id_lot_hidden for x in session.query(LotAuction.id_auction_hidden,
-                                                    LotAuction.id_lot_hidden, ).filter(
-            LotAuction.id_auction_hidden == id_auction_hidden).distinct()]
+    # TODO: исправить для нормальной работы
+    # with SessionLocal() as session:
+    #     r = [x.id_lot_hidden for x in session.query(LotAuction.id_auction_hidden,
+    #                                                 LotAuction.id_lot_hidden, ).filter(
+    #         LotAuction.id_auction_hidden == id_auction_hidden).distinct()]
+    #     list_id_hidden_lot = r
+
+    with SessionLocalLoss() as session:
+        r = [x.id_lot_hidden for x in session.query(LotAuctionLoss.id_auction_hidden,
+                                                    LotAuctionLoss.id_lot_hidden, ).filter(
+            LotAuctionLoss.id_auction_hidden == id_auction_hidden).distinct()]
         list_id_hidden_lot = r
-
     return list_id_hidden_lot
-
+# print(get_lot_id_async(198))
 
 def get_auction_id_not_async() -> list:
     """
     Получение списка всех id аукциона
     :return: [31, 32, 33, 34, 35]
     """
+    # Todo: для восстановления нормальной работы раскоммистить
+    # with SessionLocal() as session:
+    #     r = [x.id_auction_hidden for x in session.query(LotAuction.id_auction_hidden).distinct()]
+    #     list_id_hidden_auction = r
+    # return list_id_hidden_auction
 
-    with SessionLocal() as session:
-        r = [x.id_auction_hidden for x in session.query(LotAuction.id_auction_hidden).distinct()]
+    with SessionLocalLoss() as session:
+        r = [x.id_auction_hidden for x in session.query(LotAuctionLoss.id_auction_hidden).distinct()]
         list_id_hidden_auction = r
     return list_id_hidden_auction
 
 
+
+
 def create_dict_record_in_auction(list_id_auctions):
     """
-    ???
+    Создание словаря записией
     :param list_id_auctions:
     :return: {1: 6000, 2: 6000, 3: 6000, }
     """
@@ -145,11 +163,11 @@ async def get_diff_for_equally_async(id_auction, count_diff) -> list:
     Служит для получения пар срезов для разрезания списка id lot для распределения на равные части и передачи их в цикл событий асинхронной функции запросов
     :param id_auction: индефикатора в url аукциона
     :param count_diff: количество делений задач на равные части для делегирования асинхронности
-    :return:
+    :return: [(None, 31), (31, 62), (62, None)]
     """
     print("\nПолучение срезов для списков\n")
     list_slice_lots = []
-    records = dict_auction_lot[id_auction]
+    records = dict_auction_lot_loss[id_auction]
     if records < count_diff:
         count_diff = records
     simple_diff = records / count_diff

@@ -7,7 +7,8 @@ from os.path import abspath, dirname
 
 sys.path.insert(0, dirname(dirname(dirname(abspath(__file__)))))
 from get_info_lot_bids.async_src.get import gather_data
-from get_info_lot_bids.async_src.help_for_request.list_id_auction import list_id_hidden_auction
+# from get_info_lot_bids.async_src.help_for_request.list_id_auction import list_id_hidden_auction # TODO: раскоммитить для нормальной работы
+from get_info_lot_bids.async_src.help_for_request.list_id_auction import list_id_hidden_auction_loss
 from src.note_finally_parser import push_note_mail
 
 # start_time = time.time()
@@ -40,7 +41,14 @@ def main(count_create_task, list_for_request):
 #     return 1
 
 
-def get_slice_id_auction(get_i_want_auction, past_i_want_auction, list_id_auction):
+def get_slice_id_auction(get_i_want_auction: int, past_i_want_auction: int, list_id_auction: list) -> list:
+    """
+    Получение разреза списка, который будет загружен
+    :param get_i_want_auction: сколько аукционов я хочу получить
+    :param past_i_want_auction: от какого аукциона  убдет отсчет
+    :param list_id_auction: список всех аукционов
+    :return: список аукционов, который будет загружен
+    """
     right_border = past_i_want_auction + get_i_want_auction
     slice_for_request = list_id_auction[past_i_want_auction:right_border]
     return slice_for_request
@@ -56,8 +64,8 @@ def safety_cancel(sec_sleep, list_id_auc, past_i_want_auc):
 
 
 if __name__ == "__main__":
-    count_create_task = 1
-    past_i_want_auction = 1625 # 1175
+    count_create_task = 100
+    past_i_want_auction = 350  # 1175
     get_i_want_auction = 1
     safe_canc = 180
     logging.warning(f"====="
@@ -66,16 +74,19 @@ if __name__ == "__main__":
                     f"| Загружается аукционов {get_i_want_auction} "
                     f"| Задержка safe cancel {safe_canc}"
                     f"=====\n")
-    list_id_auction = list_id_hidden_auction[:]
+    list_id_auction = list_id_hidden_auction_loss[:]
     count_length = len(list_id_auction) - past_i_want_auction
     count_iter = int(count_length / get_i_want_auction)
     for x in range(count_iter):
+        # получаем список, который будет загружен
         list_for_request = get_slice_id_auction(get_i_want_auction, past_i_want_auction, list_id_auction)
+        # последняя итерация, которая будет заугружен и с которой можно будет начать в случаи остановки
         past_i_want_auction = past_i_want_auction + get_i_want_auction
         logging.warning(f"====="
                         f"Установить индекс в случаи ошибки {past_i_want_auction} "
                         f"| Загружаемый список {list_for_request}"
                         f"===============================================\n")
+        # вызов функции
         main(count_create_task=count_create_task, list_for_request=list_for_request)
         # main_test(list_for_request=list_for_request)
         safety_cancel(safe_canc, list_for_request, past_i_want_auction)

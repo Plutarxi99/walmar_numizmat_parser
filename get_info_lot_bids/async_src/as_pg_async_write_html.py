@@ -21,7 +21,7 @@ async def add_html_str_pg_asyncpg(data, try_connect):
             #             INSERT INTO html_str_3(html, id_lot_hidden, id_auction_hidden) VALUES($1, $2, $3)
             #         ''', html, id_lot_hidden, id_auction_hidden)
             await conn.executemany('''
-                        INSERT INTO html_str_3(html, id_lot_hidden, id_auction_hidden) VALUES($1, $2, $3)
+                        INSERT INTO html_str_4(html, id_lot_hidden, id_auction_hidden) VALUES($1, $2, $3)
                     ''', data)
 
             await conn.close()
