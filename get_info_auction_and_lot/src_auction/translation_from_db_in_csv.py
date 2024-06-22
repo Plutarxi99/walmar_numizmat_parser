@@ -1,7 +1,12 @@
 import sqlite3
 import csv
 from pathlib import Path
+import sys
+from os.path import dirname, abspath
+from pathlib import Path
 
+BASE_DIR = Path(__file__).resolve().parent.parent
+sys.path.insert(0, dirname(dirname(dirname(abspath(__file__)))))
 from config import settings
 """Для преобразование бд в csv файл. Требует только запуска этого файла
 Каждый раз создает новый файл. Перезаписывает раннее созданный такой же файл
