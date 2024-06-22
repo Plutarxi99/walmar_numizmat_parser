@@ -5,7 +5,12 @@ import psycopg2
 import csv
 from selectolax.lexbor import LexborHTMLParser
 from sqlalchemy import select
+import sys
+from os.path import dirname, abspath
+from pathlib import Path
 
+BASE_DIR = Path(__file__).resolve().parent.parent
+sys.path.insert(0, dirname(dirname(dirname(abspath(__file__)))))
 from config import settings
 from get_info_lot_and_bids.src_bids.database_conf import SessionBids
 from get_info_lot_and_bids.src_bids.models_bids import HtmlStr

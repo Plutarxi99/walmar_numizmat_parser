@@ -6,14 +6,17 @@ import sys
 from os.path import abspath, dirname
 from pathlib import Path
 
-from config import settings
+BASE_DIR = Path(__file__).resolve().parent.parent
+sys.path.insert(0, dirname(dirname(abspath(__file__))))
 from get_info_lot_and_bids.help_for_request_bids.list_id_auction import list_id_hidden_auction
+
+from note_finally_parser import push_note_mail
+
 from get_info_lot_and_bids.pre_start import get_auction_id_not_async
 
-BASE_DIR = Path(__file__).resolve().parent.parent
-sys.path.insert(0, dirname(dirname(dirname(abspath(__file__)))))
 from get_info_lot_and_bids.src_bids.get import gather_data
-from note_finally_parser import push_note_mail
+
+from config import settings
 
 logging.basicConfig(level=logging.WARNING, filename="log_async.log", filemode="a")
 
@@ -62,7 +65,7 @@ if __name__ == "__main__":
     past_i_want_auction = 2
     get_i_want_auction = 1
     safe_canc = 180
-    type_work = settings.TYPE_WORK # если не указывать будет аснхронная запись в postgresql, иначе оставить просто ковычки
+    type_work = settings.TYPE_WORK  # если не указывать будет аснхронная запись в postgresql, иначе оставить просто ковычки
     # можно статически указать файл или брать из таблицы,
     # которая было создана в get_info_auction_and_lot/main_auction.py
     list_id_auction = list_id_hidden_auction[:]
