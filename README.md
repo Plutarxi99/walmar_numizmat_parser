@@ -1,6 +1,3 @@
-# walmar_numizmat_parser
-
-файл "data_test/last_iter.txt" надо удалить, если необходимо заново начать парсинг
 # Walmar_numizmat_parser
 Приложение для сбора информации по аукиционам и их лотам.
 
