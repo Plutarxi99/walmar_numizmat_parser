@@ -125,6 +125,6 @@ def main(id_auction_less, id_auction_greater, table_name_ib_db, type_work):
 if __name__ == "__main__":
     id_auction_less = 1987
     id_auction_greater = 1989
-    table_name_ib_db = "html_str"
+    table_name_ib_db = settings.POSTGRES_TABLE
     type_work = settings.TYPE_WORK
     main(id_auction_less, id_auction_greater, table_name_ib_db, type_work)
