@@ -1,3 +1,9 @@
+import sys
+from os.path import dirname, abspath
+from pathlib import Path
+
+BASE_DIR = Path(__file__).resolve().parent
+sys.path.insert(0, dirname(dirname(abspath(__file__))))
 from get_info_auction_and_lot.src_auction.db import SessionLocal
 from get_info_auction_and_lot.src_auction.models import LotAuction
 

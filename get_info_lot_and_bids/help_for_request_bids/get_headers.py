@@ -1,7 +1,7 @@
 import asyncio
 import random
 
-from get_info_lot_and_bids.help_for_request_bids.list_user_agent_static import list_user_agent_static
+# from get_info_lot_and_bids.help_for_request_bids.list_user_agent_static import list_user_agent_static
 
 
 async def get_headers():
@@ -13,6 +13,18 @@ async def get_headers():
         list_headers = list_user_agent_static[:]
         headers = list_headers[random.randint(0, len(list_headers) - 1)]
     except NameError as e:
+        print(
+            "!!!!!Программа продолжает работать!!!!\n"
+            "Загрузи список user-agent. Как статические в файл .py. "
+            "К примеру: get_info_lot_and_bids/help_for_request_bids/list_user_agent_static.py\n"
+            "Создай файл указанный в пути и вставь туда список user-agent"
+            "\nПо типу:\n"
+            '"[{"User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 YaBrowser/23.5.1.750 Yowser/2.5 Safari/537.36"},\n'
+            '{"User-Agent": "Mozilla/5.0 (Windows NT 10.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"}]"')
+        list_headers = {
+            "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 YaBrowser/23.5.1.750 Yowser/2.5 Safari/537.36"}
+        headers = list_headers
+    except ModuleNotFoundError as e:
         print(
             "!!!!!Программа продолжает работать!!!!\n"
             "Загрузи список user-agent. Как статические в файл .py. "
