@@ -112,6 +112,9 @@
 * Копируем код с git:
   <pre><code>git clone git@github.com:Plutarxi99/walmar_numizmat_parser.git</code></pre>
 
+* Переходим в папку:
+  <pre><code>cd walmar_numizmat_parser/</code></pre>
+
 * Создаем виртуальное окружение:
   <pre><code>python3 -m venv env</code></pre>
   <pre><code>source env/bin/activate</code></pre>
